@@ -1,0 +1,265 @@
+/* css/custom.css - TEMA ESCURO */
+
+/* Importar Fontes do Google (Mantido) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
+
+/* Variáveis de Cor para Tema Escuro */
+:root {
+  /* Cores base escuras (Bootstrap dark usa #212529 como padrão) */
+  --bs-dark: #212529;
+  --bs-dark-rgb: 33, 37, 41;
+  --bs-body-bg: var(--bs-dark); /* Fundo principal escuro */
+  --bs-body-color: #dee2e6;    /* Cor de texto principal clara */
+  --bs-border-color: #495057;  /* Cor de borda mais sutil */
+  --bs-emphasis-color: #fff;   /* Cor de texto com mais destaque */
+
+  /* Cores personalizadas para o tema escuro */
+  --primary-color-dark: #58a6ff; /* Azul claro para destaque primário */
+  --secondary-color-dark: #1f6feb; /* Azul um pouco mais escuro */
+  --accent-color-dark: #ffd374;  /* Amarelo/laranja claro para acentos */
+  --light-gray-dark: #343a40; /* Cinza escuro para fundos sutis */
+  --white-dark: #fff; /* Branco */
+
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--bs-body-color); /* Cor padrão do Bootstrap dark */
+  background-color: var(--bs-body-bg); /* Fundo padrão do Bootstrap dark */
+  line-height: 1.7;
+  padding-top: 70px; /* Ajuste conforme a altura da navbar */
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--bs-emphasis-color); /* Cor de destaque para títulos */
+}
+
+/* --- Navbar Customization (Dark) --- */
+.navbar {
+    /* Bootstrap dark theme deve cuidar do fundo e cor do texto. Ajustamos se necessário */
+    background-color: rgba(var(--bs-dark-rgb), 0.9) !important; /* Fundo escuro semi-transparente */
+    backdrop-filter: blur(5px); /* Efeito de vidro fosco (opcional) */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra mais escura */
+    border-bottom: 1px solid var(--bs-border-color); /* Linha sutil */
+}
+
+.navbar-brand {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--primary-color-dark) !important; /* Usar cor primária clara */
+}
+
+.navbar-nav .nav-link {
+    color: var(--bs-body-color) !important; /* Cor de texto padrão clara */
+    font-weight: 600;
+    transition: color 0.3s ease;
+    margin: 0 0.5rem;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--primary-color-dark) !important; /* Cor primária clara no hover/active */
+}
+
+/* Ajustar a cor do toggler para ser visível */
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+
+/* --- Carousel Customization (Dark) --- */
+.carousel {
+  margin-bottom: 4rem;
+}
+
+.carousel-caption {
+  bottom: 3rem;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.7); /* Fundo mais opaco */
+  padding: 1.2rem 1.8rem;
+  border-radius: 0.5rem;
+}
+.carousel-caption h1, .carousel-caption p {
+    color: var(--white-dark);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8); /* Sombra mais forte */
+}
+
+.carousel-item {
+  height: 35rem;
+  transition: transform 0.8s ease-in-out;
+}
+.carousel-item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 35rem;
+  object-fit: cover;
+  /* Adicionar um leve overlay escuro nas imagens do carrossel para melhorar contraste do texto */
+  filter: brightness(0.7);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    padding: 1rem;
+}
+
+/* --- Button Customization (Dark) --- */
+.btn-primary {
+  background-color: var(--primary-color-dark);
+  border-color: var(--primary-color-dark);
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  color: var(--bs-dark); /* Texto escuro para contraste com botão claro */
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color-dark);
+  border-color: var(--secondary-color-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Sombra mais pronunciada */
+  color: var(--white-dark); /* Texto branco no hover */
+}
+
+.btn-secondary {
+   /* Fazer o secundário ser mais sutil no dark mode */
+  background-color: var(--light-gray-dark);
+  border-color: #6c757d; /* Cinza médio */
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  color: var(--bs-emphasis-color); /* Texto claro */
+}
+
+.btn-secondary:hover {
+  background-color: #6c757d; /* Cinza médio */
+  border-color: #6c757d;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  color: var(--white-dark);
+}
+
+/* --- Featurette / Content Sections (Dark) --- */
+.featurette-divider {
+  margin: 5rem 0;
+  border-top: 1px solid var(--bs-border-color); /* Usar cor de borda do tema */
+}
+
+.featurette {
+    padding: 3rem 0;
+    overflow-x: hidden;
+}
+
+.featurette-heading {
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.05rem;
+  color: var(--bs-emphasis-color); /* Cor clara de destaque */
+}
+.featurette-heading .text-body-secondary {
+    /* Bootstrap dark theme deve cuidar disso, mas podemos forçar se necessário */
+     color: #adb5bd !important; /* Cinza claro */
+     font-weight: 400;
+}
+
+.featurette .lead {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--bs-body-color); /* Cor padrão clara */
+}
+
+/* Imagens (Dark Mode) */
+.featurette img, .bd-placeholder-img, .marketing img {
+    border-radius: 0.5rem;
+    /* Sombra clara ou borda para destacar no fundo escuro */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--bs-border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.featurette img:hover, .bd-placeholder-img:hover, .marketing img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Sombra mais forte no hover */
+    border-color: #6c757d; /* Borda mais clara no hover */
+}
+
+/* Marketing Section (Dark) */
+.marketing .col-lg-4 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+.marketing h2 {
+    font-weight: 600;
+    font-size: 1.75rem;
+    color: var(--bs-emphasis-color);
+}
+
+/* Ícones de marketing (placeholders) - Ajuste se usar SVGs ou fontes */
+.marketing img.rounded-circle {
+    border: 3px solid var(--light-gray-dark);
+}
+
+/* --- Footer (Dark) --- */
+footer {
+  background-color: #1c1f23; /* Um tom ligeiramente diferente do body */
+  padding: 2.5rem 0;
+  margin-top: 4rem;
+  border-top: 1px solid var(--bs-border-color);
+  color: #adb5bd; /* Cinza claro */
+  font-size: 0.9rem;
+}
+
+footer p {
+  margin-bottom: 0.25rem;
+}
+
+footer a {
+    color: var(--primary-color-dark); /* Cor primária clara */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+footer a:hover {
+    color: var(--white-dark); /* Branco no hover */
+    text-decoration: underline;
+}
+
+/* --- Animações AOS (Mantido) --- */
+[data-aos] {
+  opacity: 0;
+  transition-property: transform, opacity;
+}
+
+/* --- Ajustes de Responsividade (Mantido) --- */
+@media (min-width: 40em) {
+  .carousel-caption p {
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+  .featurette-heading {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 62em) {
+    .featurette-heading {
+        font-size: 3rem;
+        margin-top: 0;
+    }
+    body { padding-top: 56px; } /* Ajustar se necessário */
+}
